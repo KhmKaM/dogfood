@@ -1,6 +1,6 @@
 .search-block {
     min-width: 300px;
-    background-color: red;
+/*    background-color: red; */
     width: max-content;
     display: flex;
     align-items: center;
@@ -34,4 +34,11 @@
 }
 .search-block svg:hover {
     fill: rgb(243, 231, 5);
+}
+
+.search-result{
+    position: absolute;
+    top: 36px;
+    left: 12px;
+    font-size: 12px;
 }
