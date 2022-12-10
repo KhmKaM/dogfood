@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-export default (change, api, close) => {
+export default ({change, api, close, setToken}) => {
     const [inp1, setInp1] = useState("");
     const [inp2, setInp2] = useState("");
     const [inp3, setInp3] = useState("");
@@ -23,13 +23,19 @@ export default (change, api, close) => {
             email: inp1,
             password: inp2
         }
-        console.log(api);
+    /*    console.log(api); */
         api.signUp(body)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
                 if (!data.err) {
-                    api.logIn(body);
+                    api.signIn(body)
+                        .then(res => res.json())
+                        .then(data => {
+                            localStorage.setItem("user8", data.data.name);
+                            localStorage.setItem("token8", data.token);
+                            setToken(data.token);
+                        })
                     setInp1("");
                     setInp2("");
                     setInp3("");

@@ -22,6 +22,13 @@ class Api {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(body)
+        });
+    }
+    getProducts() {
+        return fetch(`${this.path}/products`, {
+            headers: {
+                "authorization": `Bearer ${this.token}`
+            }
         })
     }
 }
