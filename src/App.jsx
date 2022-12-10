@@ -9,12 +9,14 @@ import Modal from "./components/Modal/index"
 import Home from "./pages/Home.jsx";
 import Catalog from "./pages/Catalog.jsx";
 
+import {Api} from "./Api";
+
 const smiles = ["^_^", "=)", "O_o", ";(", "^_0", "@_@", "-_-"];
 
 const App = () => {
     const [user, setUser] = useState(localStorage.getItem("user8"));
-    const [modalActive, setModalActive] = useState(true);
-//    let user = localStorage.getItem("user8");
+    const [modalActive, setModalActive] = useState(false);
+    const [api, setApi] = useState(new Api(""));
     return (
         <>
             <div className="container">
@@ -31,7 +33,7 @@ const App = () => {
             </div>
             {/* isActive , setState - параметры которые работают внутри компонента Modal,
                 modalActive setModalActive - значения которые сохраняются внутри параметра */}
-            <Modal isActive={modalActive} setState={setModalActive}/>
+            <Modal isActive={modalActive} setState={setModalActive} api={api}/>
         </>
     )
 }
