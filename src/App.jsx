@@ -10,8 +10,19 @@ import Home from "./pages/Home.jsx";
 import Catalog from "./pages/Catalog.jsx";
 
 import {Api} from "./Api";
+import dataLocal from "./assets/data.json";
 
-const smiles = ["^_^", "=)", "O_o", ";(", "^_0", "@_@", "-_-"];
+const dataHome = [];
+for(let i=0; i < 6; i++) {
+    let j = Math.floor(Math.random() * 16);
+
+    if(!dataHome.includes(dataLocal[j])) {
+        dataHome.push(dataLocal[j]);
+    } else {
+        j = Math.floor(Math.random() * 16);
+        i--;
+    }
+}
 
 const App = () => {
     const [user, setUser] = useState(localStorage.getItem("user8"));
@@ -21,21 +32,16 @@ const App = () => {
     const [goods, setGoods] = useState([]);
 
     useEffect(() => {
-        console.log("Hello!")
-        console.log(token);
         if (token) {
-            // загрузить данные с сервера
             api.getProducts()
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 setGoods(data.products);
             })
         }
-    }, []) // без зависимости функция срабатывает один раз при создании компонента
+    }, [])
 
     useEffect(() => {
-        console.log("Change token");
         setApi(new Api(token));
         setUser(localStorage.getItem("user8"));
     }, [token])
@@ -49,7 +55,6 @@ const App = () => {
 
     useEffect(() => {
         if (token) {
-            // загрузить данные с сервера
             api.getProducts()
             .then(res => res.json())
             .then(data => {
@@ -69,12 +74,10 @@ const App = () => {
                     setModalActive={setModalActive}
                 />
                 <main>
-                    {user ? <Catalog data={goods}/> : <Home data={smiles}/>}
+                    {user ? <Catalog data={goods}/> : <Home data={dataHome}/>}
                 </main>
                 <Footer/>
             </div>
-            {/* isActive , setState - параметры которые работают внутри компонента Modal,
-                modalActive setModalActive - значения которые сохраняются внутри параметра */}
             <Modal isActive={modalActive} setState={setModalActive} api={api} setToken={setToken}/>
         </>
     )

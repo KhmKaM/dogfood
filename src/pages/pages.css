@@ -1,0 +1,114 @@
+.top-page {
+    background-color: rgb(243, 243, 37);
+    margin-top: auto;
+    padding: 20px;
+    gap: 15px;
+    border-radius: 8px;
+}
+.top-page>button {
+    position: relative;
+    border: 20px;
+    height: 40px;
+    background-color: white;
+    border: 10px;
+    border-radius: 10px;
+    width: 90px;
+    height: 25px;
+}
+.top-page>button:hover {
+	color:rgb(243, 243, 37);
+	cursor:  pointer;
+}
+h1 {
+    padding-left: 100px;
+}
+
+.home {
+    margin: 0 auto;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.cards {
+    margin: 30px 100px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.first-block {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-image: url(https://phonoteka.org/uploads/posts/2022-01/1643183578_7-phonoteka-org-p-skidki-fon-7.jpg);
+    border-radius: 20px;
+    padding: 20px;
+    color: #fff;
+    margin: -15px 100px 0px;
+    box-sizing: border-box;
+}
+
+.first-block h2 {
+    font-size: 1.8em;
+}
+
+.first-block p {
+    font-size: 1.2em;
+}
+
+.first-block img {
+    max-width: 280px;
+    height: auto;
+    border-radius: 10px;
+}
+
+
+.ad-block {
+    margin: 0px 100px 30px;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 20px;
+}
+
+.second-block {
+    margin-top: 30px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.second-block__img {
+    max-width: 120px;
+}
+
+.ad-block__item {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    align-items: center;
+    background-color: rgb(216, 151, 10);
+    padding: 20px;
+    border-radius: 20px;
+    color: #fff;
+    box-sizing: border-box;
+}
+.feed {
+    background-image: url(https://www.tinydog.ru/wp-content/uploads/2016/07/Suhoj-korm.jpg);
+}
+.tng {
+    background-image: url(https://dogs-hall.ru/storage/images/XOGLKt7ZZX4.jpg);
+}
+.toys {
+    background-image: url(https://i.pinimg.com/736x/cf/f3/74/cff37470a092efab8ae3c84d5087748e.jpg);
+}
+
+.ad-block__item h3 {
+    font-size: 1.3em;
+    line-height: 1.2;
+}
+
+.ad-block__item p {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+.ad-block__img {
+    max-width: 160px;
+}
