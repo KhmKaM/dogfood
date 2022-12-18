@@ -4,25 +4,27 @@ import products from "./assets/data.json";
 
 import Header from "./components/Header/header";
 import Footer from "./components/Footer/footer";
-import Modal from "./components/Modal/index"
+import Modal from "./components/Modal"
 
 import Home from "./pages/Home.jsx";
 import Catalog from "./pages/Catalog.jsx";
 
 import {Api} from "./Api";
-import dataLocal from "./assets/data.json";
 
-const dataHome = [];
-for(let i=0; i < 6; i++) {
-    let j = Math.floor(Math.random() * 16);
+const smiles = [<span>^_^</span>, "=)", "O_o", ";(", "^_0", "@_@", "–_–"];
+// import dataLocal from "./assets/data.json";
 
-    if(!dataHome.includes(dataLocal[j])) {
-        dataHome.push(dataLocal[j]);
-    } else {
-        j = Math.floor(Math.random() * 16);
-        i--;
-    }
-}
+// const dataHome = [];
+// for(let i=0; i < 6; i++) {
+//     let j = Math.floor(Math.random() * 16);
+
+//     if(!dataHome.includes(dataLocal[j])) {
+//         dataHome.push(dataLocal[j]);
+//     } else {
+//         j = Math.floor(Math.random() * 16);
+//         i--;
+//     }
+// }
 
 const App = () => {
     const [user, setUser] = useState(localStorage.getItem("user8"));
@@ -74,7 +76,7 @@ const App = () => {
                     setModalActive={setModalActive}
                 />
                 <main>
-                    {user ? <Catalog data={goods}/> : <Home data={dataHome}/>}
+                    {user ? <Catalog data={goods}/> : <Home data={smiles}/>}
                 </main>
                 <Footer/>
             </div>
