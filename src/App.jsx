@@ -12,19 +12,6 @@ import Catalog from "./pages/Catalog.jsx";
 import {Api} from "./Api";
 
 const smiles = [<span>^_^</span>, "=)", "O_o", ";(", "^_0", "@_@", "–_–"];
-// import dataLocal from "./assets/data.json";
-
-// const dataHome = [];
-// for(let i=0; i < 6; i++) {
-//     let j = Math.floor(Math.random() * 16);
-
-//     if(!dataHome.includes(dataLocal[j])) {
-//         dataHome.push(dataLocal[j]);
-//     } else {
-//         j = Math.floor(Math.random() * 16);
-//         i--;
-//     }
-// }
 
 const App = () => {
     const [user, setUser] = useState(localStorage.getItem("user8"));
