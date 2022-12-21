@@ -1,15 +1,18 @@
 import React from "react";
 import Card from "../components/Card";
+import Ads from "../components/Ads/ads";
+import {Link} from "react-router-dom";
 import "./pages.css";
 
 export default ({data}) => {
-    return (<>
+    return <>
+        <h1>Главная страница</h1>
+        <Ads/>
         <div className="top-page">
             <h2>Крафтовые лакомства<br/>для собак</h2>
             <p>Всегда свежие лакомства ручной<br/> 
                 работы c доставкой по России и Миру</p>
-            <button>Каталог <i class="fa-solid 
-            fa-angle-right"></i></button>
+            <button><Link to="/catalog">Перейти в каталог</Link></button>
         </div>
 
         <div className="home">
@@ -83,5 +86,5 @@ export default ({data}) => {
                 </a>
             </div>
         </div>
-    </>)
+    </>
 }
