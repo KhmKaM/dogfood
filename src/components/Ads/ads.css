@@ -12,6 +12,9 @@
     overflow: hidden;
     z-index: 1;
     justify-content: space-between;
+    font-size: 14px;
+    font-family: fantasy;
+    font-style: italic;
 }
 .promo::before {
     content: "";

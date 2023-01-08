@@ -4,7 +4,9 @@ import pic from "./img/dogs.png";
 
 export default () => {
     return <div className="promo">
-        Lorem ipsum dolor sit amet consectetur adipisicing.
+        Собаки — удивительные существа. Они любят нас без условий. 
+        Собаки подают нам пример, как надо жить.
+        (Гилда Раднер)
         <img src={pic} alt="Собачки"/>
     </div>
 }
