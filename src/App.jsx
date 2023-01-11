@@ -75,7 +75,8 @@ const App = () => {
                     <Routes>
                         <Route path="/" element={<Home data={smiles}/>}/>
                         <Route path="/catalog" element={
-                            <Catalog data={visibleGoods}/>}/>
+                            user ? <Catalog data = {visibleGoods} /> 
+                            : <Catalog data = {visibleGoods}/>}/>
                         <Route path="/profile" 
                         element={<Profile setUser={setUser} user={user}/>}/>
                         <Route path="/catalog/:id" element={<Product/>}/>
