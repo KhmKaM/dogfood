@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useContext} from "react";
 import {useNavigate} from "react-router";
+import Ctx from "../Ctx";
 
-export default ({setUser, user}) => {
+export default () => {
+    const {user, setUser} = useContext(Ctx);
     const navigate = useNavigate();
 
     const logOut = (e) => {
@@ -12,7 +14,7 @@ export default ({setUser, user}) => {
     }
     return <>
         <h1>Личный кабинет</h1>
-        <p>Привет, {user}</p>
+        <p>Привет, {user && user.name}</p>
         <a href="" onClick={logOut} style={{color: "orange"}}>Выйти из аккаунта</a>
     </>
 }

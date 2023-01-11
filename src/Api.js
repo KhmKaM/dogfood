@@ -90,7 +90,7 @@ class Api {
             }
         });
     }
-    getProductId() {
+    getProduct(id) {
         return fetch(`${this.path}/products/${this.id}`, {
             headers: {
                 "authorization": `Bearer ${this.token}`
