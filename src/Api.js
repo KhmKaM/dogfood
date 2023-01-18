@@ -126,24 +126,14 @@ class Api {
         })
     }
 
-    // addLike(body) {
-    //     return fetch(`${this.path}/products/likes/${this._id}`, {
-    //         method: "PUT",
-    //         headers: {
-    //             "authorization": `Bearer ${this.token}`,
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify(body)
-    //     });
-    // }
-    // deleteLike() {
-    //     return fetch(`${this.path}/products/likes/${this._id}`, {
-    //         method: "DELETE",
-    //         headers: {
-    //             "authorization": `Bearer ${this.token}`
-    //         }
-    //     });
-    // }
+    setLike(id, isLike) {
+        return fetch(`${this.path}/products/likes/${id}`, {
+            method: isLike ? "DELETE" : "PUT",
+            headers: {
+                "authorization": `Bearer ${this.token}`
+            },
+        });
+    }
 
     // addReview(body) {
     //     return fetch(`${this.path}/products/review/${this._id}`, {
