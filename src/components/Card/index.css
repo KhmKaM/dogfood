@@ -27,11 +27,11 @@ h3 {
     min-height: 100%;
 }
 
-.card__price {
+/* .card__price {
     align-self: flex-start;
-}
+} */
 
-.card__weight {
+/* .card__weight {
     align-self: flex-start;
     opacity: 0.8;
 }
@@ -39,4 +39,4 @@ h3 {
 .card h3 {
     align-self: flex-start;
     font-size: 1em;
-}
+} */

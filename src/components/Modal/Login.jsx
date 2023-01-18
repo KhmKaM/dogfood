@@ -13,25 +13,24 @@ export default ({change, close}) => {
             email: inp1,
             password: inp2
         }
-    /*    console.log(body);  */
         api.signIn(body)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
                 localStorage.setItem("user8", JSON.stringify(data.data));
-                localStorage.setItem("token", data.token);
+                localStorage.setItem("token8", data.token);
                 setToken(data.token);
                 setInp1("");
                 setInp2("");
-                close(false);
+                close(false)
             })
     }
 
     return <form onSubmit={sendForm}>
         <input 
             type="email" 
-            placeholder="Введите Вашу почту" 
-            value={inp1}
+            placeholder="Введите вашу почту" 
+            value={inp1} 
             required
             onChange={(e) => {setInp1(e.target.value)}}
         />
@@ -42,7 +41,6 @@ export default ({change, close}) => {
             onChange={(e) => {setInp2(e.target.value)}}
         />
         <button className="btn" type="submit">Войти</button>
-        <button className="btn link" type="button" onClick={() => {change(prev =>
-            !prev)}}>Зарегистрироваться</button>
+        <button className="btn link" type="button" onClick={() => {change(prev => !prev)}}>Зарегистрироваться</button>
     </form>
 }

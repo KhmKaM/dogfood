@@ -4,23 +4,22 @@ import {Link} from "react-router-dom";
 import {EmojiFrown} from "react-bootstrap-icons";
 import Ctx from "../Ctx";
 import "./pages.css";
+import usePagination from "../hooks/usePagination";
+import Pagination from "../components/Pagination";
 
-export default ({data}) => {
+export default () => {
     const {visibleGoods, user} = useContext(Ctx);
+    const paginate = usePagination(visibleGoods, 12);
     return <>
         {user && <>
         {visibleGoods.length > 0 ? 
         <>
             <h1>Каталог товаров</h1>
+            <Pagination hook={paginate}/>
             <div className="cards">
                     {visibleGoods.map((el, i) => 
                     <Link to={`/catalog/${el._id}`} key={el._id}>
-                    <Card key={"card_" + i} 
-                        text={el.name} 
-                        like={(i + 1) % 2 === 0}
-                        price={el.price}
-                        pictures={el.pictures}
-                        weight={el.wight}/>
+                    <Card key={"card_" + i} {...el}/>
                     </Link>)}
             </div>
         </>

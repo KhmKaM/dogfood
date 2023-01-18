@@ -1,8 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./index.css";
+import Ctx from "../../Ctx";
 
-export default ({text, like, price, pictures, weight}) => {
-    return (<div className="card">
+export default ({name, pictures, price, author}) => {
+    const {user} = useContext(Ctx);
+    const like = author._id === user.id;
+    return <div className="card">
+        <img src={pictures} alt={name} style={{height: "100px"}}/>
+        {name}
+        <h6>{price} ₽</h6>
+        <button className="btn">Купить</button>
         <span className="card__heart">
             {
                 like
@@ -10,11 +17,5 @@ export default ({text, like, price, pictures, weight}) => {
                 : <i className="fa-regular fa-heart"></i>
             }
         </span>
-        <div className="card__pic">
-            <img src={pictures}/>
-        </div>
-        <div className="card__price">{price} руб</div>
-        <div className="card__weight">{weight}</div>
-        <h3>{text}</h3>
-    </div>)
+    </div>
 }

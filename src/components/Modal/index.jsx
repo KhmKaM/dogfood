@@ -17,7 +17,8 @@ export default () => {
             <h2>{auth ? "Войти" : "Зарегистрироваться"}</h2>
             {auth 
             ? <Login change={setAuth} close={setModalActive}/> 
-            : <Signup change={setAuth} close={setModalActive}/>}
+            : <Signup change={setAuth} close={setModalActive}/>
+            }
         </div>
     </div>
 }

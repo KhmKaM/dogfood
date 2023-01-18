@@ -6,15 +6,15 @@ export default ({change, close}) => {
     const [inp2, setInp2] = useState("");
     const [inp3, setInp3] = useState("");
     const [testPwd, setTestPwd] = useState(true);
+    const {api, setToken, setUser} = useContext(Ctx);
 
-    const {setToken, api, setUser} = useContext(Ctx);
-    const checkPwd = (val, type="main") => {
+    const checkPwd = (val, type = "main") => {
         type === "main" ? setInp2(val) : setInp3(val);
         if (val) {
             if (type === "main") {
                 setTestPwd(val !== inp3);
             } else {
-                setTestPwd (val !== inp2);
+                setTestPwd(val !== inp2);
             }
         }
     }
@@ -25,10 +25,10 @@ export default ({change, close}) => {
             email: inp1,
             password: inp2
         }
+        console.log(body);
         api.signUp(body)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (!data.err) {
                     api.signIn(body)
                         .then(res => res.json())
@@ -43,7 +43,7 @@ export default ({change, close}) => {
                     setInp3("");
                     close(false);
                 } else {
-                    alert(data.messege);
+                    alert(data.message);
                 }
             })
     }
@@ -51,8 +51,8 @@ export default ({change, close}) => {
     return <form onSubmit={sendForm}>
         <input 
             type="email" 
-            placeholder="Введите Вашу почту" 
-            value={inp1}
+            placeholder="Введите вашу почту" 
+            value={inp1} 
             required
             onChange={(e) => {setInp1(e.target.value)}}
         />
@@ -64,13 +64,19 @@ export default ({change, close}) => {
         />
         <input 
             type="password" 
-            placeholder="Повторите пароль" 
+            placeholder="Повторить пароль" 
             value={inp3} 
-            onChange={(e) => {checkPwd(e.target.value, "secondary")}}
+            onChange={(e) => {checkPwd(e.target.value, "check")}}
         />
-        <button className="btn" type="submit" disabled={testPwd}
-        >Зарегистрироваться</button>
-        <button className="btn link" type="button" onClick={() => {change(prev =>
-            !prev)}}>Войти</button>
+        <button className="btn" 
+        type="submit" 
+        disabled={testPwd}>
+            Зарегистрироваться
+        </button>
+        <button className="btn link" 
+        type="button" onClick={() => 
+        {change(prev => !prev)}}>
+            Войти
+        </button>
     </form>
 }

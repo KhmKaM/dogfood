@@ -25,7 +25,8 @@ export default () => {
         setVisibleGoods(arr);
     }
     return <div className="search-block">
-        <input placeholder="Поиск..." value={text} 
+        <input placeholder="Поиск..." 
+            value={text} 
             onChange={search}/>
         <button>{text ? <CloseImg onClick={clearSearch}/> 
         : <SearchImg/>}</button>
