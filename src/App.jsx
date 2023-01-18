@@ -104,9 +104,8 @@ const App = () => {
                 <main>
                     {/* {user ? <Catalog data={goods}/> : <Home data={smiles}/>} */}
                     <Routes>
-                        <Route path={PATH} element={<Home data={smiles}/>}/>
-                        <Route path={PATH + "catalog"} element={
-                            <Catalog/>}/>
+                        <Route path={PATH} element={<Home data={[]}/>}/>
+                        <Route path={PATH + "catalog"} element={<Catalog/>}/>
                         <Route path={PATH + "profile"} 
                         element={<Profile/>}/>
                         <Route path={PATH + "catalog/:id"} element={<Product/>}/>
