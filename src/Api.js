@@ -145,7 +145,7 @@ class Api {
     //         body: JSON.stringify(body)
     //     });
     // }
-    // deleteReview() {
+    // delReview() {
     //     return fetch(`${this.path}/products/review/${this._id}/${this.reviews.id}`, {
     //         method: "DELETE",
     //         headers: {
