@@ -111,7 +111,7 @@ const App = () => {
                         <Route path={PATH + "catalog/:id"} element={<Product/>}/>
                         <Route path={PATH + "add"} element={<AddForm/>}/>
                         <Route path={PATH + "favorites"} element={<Favorites/>}/>
-                        <Route path={PATH + "fake/:n/:title"} element={<Fake/>}/>
+                        {/* <Route path={PATH + "fake/:n/:title"} element={<Fake/>}/> */}
                     </Routes>
                     {/* <ul>
                         {smiles.map((el, i) => <li key={el}>

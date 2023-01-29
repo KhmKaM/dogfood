@@ -26,10 +26,9 @@ export default () => {
                     <a href=""><i className="fa-brands fa-vk"></i></a>
                     <a href=""><i className="fa-brands fa-odnoklassniki"></i></a>
                     <a href=""><i className="fa-brands fa-telegram"></i></a>
-                    <a href=""><i class="fa-brands fa-instagram"></i></a>
-                    <a href=""><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href=""><i className="fa-brands fa-instagram"></i></a>
+                    <a href=""><i className="fa-brands fa-whatsapp"></i></a>
                 </nav>
             </div>
     </footer>
 }
-
