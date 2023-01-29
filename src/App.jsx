@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {Routes, Route} from "react-router-dom";
+import {Routes, Route, Link} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 //  import products from "./assets/data.json";
@@ -14,6 +14,7 @@ import Profile from "./pages/Profile";
 import Product from "./pages/Product";
 import AddForm from "./pages/AddForm";
 import Favorites from "./pages/Favorites";
+import Fake from "./pages/Fake";
 
 import {Api} from "./Api";
 import Ctx from "./Ctx";
@@ -76,7 +77,7 @@ const App = () => {
         setVisibleGoods(goods);
         setFavorites(goods.filter(el => {
             // Найти только те товары, в которых свойство likes ([]) включает в себя id моего пользователя
-            el.likes.includes(user._id);
+            return el.likes && el.likes.includes(user._id);
         }))
     }, [goods])
 
@@ -106,12 +107,17 @@ const App = () => {
                     <Routes>
                         <Route path={PATH} element={<Home data={[]}/>}/>
                         <Route path={PATH + "catalog"} element={<Catalog/>}/>
-                        <Route path={PATH + "profile"} 
-                        element={<Profile/>}/>
+                        <Route path={PATH + "profile"} element={<Profile/>}/>
                         <Route path={PATH + "catalog/:id"} element={<Product/>}/>
                         <Route path={PATH + "add"} element={<AddForm/>}/>
                         <Route path={PATH + "favorites"} element={<Favorites/>}/>
+                        <Route path={PATH + "fake/:n/:title"} element={<Fake/>}/>
                     </Routes>
+                    {/* <ul>
+                        {smiles.map((el, i) => <li key={el}>
+                            <Link to={`${PATH}fake/${i+1}/${el}`}>{el}</Link>
+                        </li>)}
+                    </ul> */}
                 </main>
                 <Footer/>
             </div>
