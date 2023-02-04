@@ -55,7 +55,7 @@ const App = () => {
         let usr = localStorage.getItem("user8");
         if (usr) {
             usr = JSON.parse(usr);
-         }
+        }
         setUser(usr);
     }, [token])
 
@@ -71,13 +71,13 @@ const App = () => {
             api.getProducts()
             .then(res => res.json())
             .then(data => {
+                setVisibleGoods(data.products);
                 setGoods(data.products);
             })
         }
     }, [api])
 
     useEffect(() => {
-        setVisibleGoods(goods);
         setFavorites(goods.filter(el => {
             // Найти только те товары, в которых свойство likes ([]) включает в себя id моего пользователя
             return el.likes && el.likes.includes(user._id);
