@@ -67,7 +67,7 @@ export default ({name, pictures, price, likes, _id}) => {
     //         })
     //     }
     // }, [like])
-    
+
     return <div className="card">
         <img src={pictures} alt={name} style={{height: "100px"}}/>
         {name}

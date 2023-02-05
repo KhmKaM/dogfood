@@ -61,10 +61,22 @@ export default () => {
         <>
             <h1>Каталог товаров</h1>
             <div style={st}>
-                <button className={`btn ${btnType === "up" ? "sort" : ""}`} title="up" onClick={updSort}><SortNumericUp/> цены</button>
-                <button className={`btn ${btnType === "down" ? "sort" : ""}`} title="down" onClick={updSort}><SortNumericDown/> цены</button>
-                <button className={`btn ${btnType === "new" ? "sort" : ""}`} title="new" onClick={updSort}>Новинки</button>
-                <button className={`btn ${btnType === "sale" ? "sort" : ""}`} title="sale" onClick={updSort}>Скидка</button>
+                <button className={`btn ${btnType === "up" ? "sort" : ""}`} 
+                    title="up" 
+                    onClick={updSort}>
+                    <SortNumericUp/> цены
+                </button>
+                <button className={`btn ${btnType === "down" ? "sort" : ""}`} 
+                    title="down" 
+                    onClick={updSort}>
+                    <SortNumericDown/> цены
+                </button>
+                <button className={`btn ${btnType === "new" ? "sort" : ""}`} 
+                title="new" onClick={updSort}>Новинки</button>
+                <button className={`btn ${btnType === "sale" ? "sort" : ""}`} 
+                title="sale" 
+                onClick={updSort}>Скидка
+                </button>
             </div>
             <Pagination hook={paginate}/>
             <div className="cards">

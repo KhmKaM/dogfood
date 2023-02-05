@@ -6,7 +6,6 @@ import "./pages.css";
 
 export default ({data}) => {
     return <>
-        {/* <h1>Главная страница</h1> */}
         <Ads/>
         <div className="top-page">
             <h2>Крафтовые лакомства<br/>для собак</h2>

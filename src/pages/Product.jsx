@@ -36,6 +36,7 @@ export default () => {
                 }
             })
     }
+
     return <>
         <Link to={PATH + "catalog"}>
         <ArrowLeft/> Назад</Link>
@@ -71,7 +72,6 @@ export default () => {
                                 "product-price"}>{discountPrice} руб.</span>
                     </div>
 
-
                     <div className="product-cart">
                         <div className="product-number"></div>
                         <button className="product-btn-card">В корзину</button>
@@ -95,7 +95,6 @@ export default () => {
                     </div>
                 </div>
             </div>
-
 
             <div className="product-description">
                 <span>Описание</span>
