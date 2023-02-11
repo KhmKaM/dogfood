@@ -42,13 +42,13 @@ class Api {
     //         body: JSON.stringify(body)
     //     });
     // }
-    // getUsers() {
-    //     return fetch(`${this.path}/v2/group-8/users`, {
-    //         headers: {
-    //             "authorization": `Bearer ${this.token}`
-    //         }
-    //     });
-    // }
+    getUsers() {
+        return fetch(`${this.path}/v2/${this.group}/users`, {
+            headers: {
+                "authorization": `Bearer ${this.token}`
+            }
+        })
+    }
     // getUserId() {
     //     return fetch(`${this.path}/v2/group-8/users/${this._id}`, {
     //         headers: {
