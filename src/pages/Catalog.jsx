@@ -14,7 +14,8 @@ export default () => {
     const [btnType, setBtnType] = useState("");
     let st = {
         display: "flex",
-        gap: "10px"
+        gap: "10px",
+        marginLeft: "100px"
     }
     const updSort = (e) => {
         let el = e.currentTarget;
@@ -49,10 +50,7 @@ export default () => {
         }
     }
     useEffect(() => {
-        if (sortGoods.length === 0) {
                 setSortGoods(visibleGoods);
-        }
-
     }, [visibleGoods]);
 
     return <>
