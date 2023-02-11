@@ -1,7 +1,7 @@
 import React, {useContext, useState, useEffect} from "react";
 import { Table } from "react-bootstrap";
 import {Link} from "react-router-dom";
-import {EmojiFrown} from "react-bootstrap-icons";
+import {EmojiFrown, BagCheck} from "react-bootstrap-icons";
 import Ctx from "../Ctx";
 import Row from "../components/Row/row";
 
@@ -51,12 +51,13 @@ export default () => {
                     </tr>
                 </tfoot>
             </Table>}
+        <Link to={PATH +'catalog'}><h2> Вернуться в каталог <BagCheck/></h2></Link>
         </>
             : <div className="empty-block">
                     <EmojiFrown/>
                     <h2>В корзине пока нет ни одного товара</h2>
                     <p>Добавьте товар, нажав кнопку «Купить» в карточке товара</p>
-                    <Link to={PATH+"catalog"} className="btn">В каталог</Link>
+                    <Link to={PATH+"catalog"} className="btn"> В каталог </Link>
             </div>
         }
     </>

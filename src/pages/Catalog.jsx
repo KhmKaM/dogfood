@@ -1,7 +1,7 @@
 import React, {useContext, useState, useEffect} from "react";
 import Card from "../components/Card";
 import {Link} from "react-router-dom";
-import {EmojiFrown, SortNumericDown, SortNumericUp} from "react-bootstrap-icons";
+import {EmojiFrown, SortNumericDown, SortNumericUp, BagCheck} from "react-bootstrap-icons";
 import Ctx from "../Ctx";
 import "./pages.css";
 import usePagination from "../hooks/usePagination";
@@ -15,7 +15,8 @@ export default () => {
     let st = {
         display: "flex",
         gap: "10px",
-        marginLeft: "100px"
+        marginLeft: "90px",
+        padding: "10px"
     }
     const updSort = (e) => {
         let el = e.currentTarget;
@@ -57,7 +58,7 @@ export default () => {
         {user && <>
         {visibleGoods.length > 0 ? 
         <>
-            <h1>Каталог товаров</h1>
+            <h1>Каталог товаров <BagCheck/></h1>
             <div style={st}>
                 <button className={`btn ${btnType === "up" ? "sort" : ""}`} 
                     title="up" 
