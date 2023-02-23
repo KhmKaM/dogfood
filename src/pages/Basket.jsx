@@ -20,10 +20,16 @@ export default () => {
         setGds(arr);
     }, [basket, goods])
 
+    useEffect(() => {
+        if(basket.length === 0) {
+            localStorage.removeItem("basket");
+        }
+    })
+
     return <>
+        { basket.length > 0 && gds.length > 0 && <h1>Корзина</h1> }
         {basket.length > 0 
             ? <>
-            <h1>Корзина</h1>
             {basket.length > 0 && gds.length > 0 && <Table hover>
                 <thead>
                     <tr>

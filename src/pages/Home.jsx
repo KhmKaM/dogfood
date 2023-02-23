@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import "./pages.css";
 
 export default ({data}) => {
+    const flag = "true";
     return <>
         <Ads/>
         <div className="top-page">
@@ -51,15 +52,7 @@ export default ({data}) => {
             </div>
 
             <div className="cards">
-                    {data.map((el, i) => 
-                    <Card 
-                    key={"card_" + i} 
-                    text={el} 
-                    like={(i + 1) % 2 === 0}
-                    price={el.price}
-                    pictures={el.pictures}
-                    weight={el.wight}
-                    />)}
+                {data.map((el, i) => <Card {...el} flag={flag} key={"card_" + i} />)}
             </div>
 
         <div className="ad-block">

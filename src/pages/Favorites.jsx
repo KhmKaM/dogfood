@@ -18,7 +18,7 @@ export default () => {
                     {paginate.setPageData().map((el, i) => 
                         <Link to={`/catalog/${el._id}`} 
                     key={el._id}>
-                        <Card key={"card_" + i} {...el}/>
+                        <Card {...el} key={"card_" + i} />
                     </Link>)}
                 </div>
                 <Link to={PATH +'catalog'}><h2> Вернуться в каталог <BagCheck/></h2></Link>

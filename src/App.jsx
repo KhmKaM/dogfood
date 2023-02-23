@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {Routes, Route, Link} from "react-router-dom";
+import {Routes, Route} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 //  import products from "./assets/data.json";
@@ -16,14 +16,21 @@ import AddForm from "./pages/AddForm";
 import Favorites from "./pages/Favorites";
 // import Fake from "./pages/Fake";
 import Basket from "./pages/Basket";
-
+import dataLocal from "./assets/data.json";
 import {Api} from "./Api";
 import Ctx from "./Ctx";
 
 const PATH = "/";
 //const PATH = "/dogfood/"; //githubpages
-
-const smiles = [<span>^_^</span>, "=)", "O_o", ";(", "^_0", "@_@", "–_–"];
+const dataHome = [];
+for (let i=0; i < 6;) {
+    let j = Math.floor(Math.random() * 16);
+    if(!dataHome.includes(dataLocal[j])) {
+        dataHome.push(dataLocal[j]);
+        i++;
+    }
+}
+// const smiles = [<span>^_^</span>, "=)", "O_o", ";(", "^_0", "@_@", "–_–"];
 
 const App = () => {
     let usr = localStorage.getItem("user8");
@@ -121,7 +128,7 @@ const App = () => {
                 <main>
                     {/* {user ? <Catalog data={goods}/> : <Home data={smiles}/>} */}
                     <Routes>
-                        <Route path={PATH} element={<Home data={[]}/>}/>
+                        <Route path={PATH} element={<Home data={dataHome}/>}/>
                         <Route path={PATH + "catalog"} element={<Catalog/>}/>
                         <Route path={PATH + "profile"} element={<Profile/>}/>
                         <Route path={PATH + "catalog/:id"} element={<Product/>}/>
