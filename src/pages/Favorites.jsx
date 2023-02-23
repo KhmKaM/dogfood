@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import Card from "../components/Card";
 import {Link} from "react-router-dom";
-import {EmojiFrown} from "react-bootstrap-icons";
+import {EmojiFrown, BagCheck} from "react-bootstrap-icons";
 import Ctx from "../Ctx";
 import "./pages.css";
 import usePagination from "../hooks/usePagination";
@@ -13,7 +13,6 @@ export default () => {
     return <>
         {favorites.length > 0 
             ? <>
-                <h1>Каталог товаров</h1>
                 <Pagination hook={paginate}/>
                 <div className="cards">
                     {paginate.setPageData().map((el, i) => 
@@ -22,6 +21,7 @@ export default () => {
                         <Card key={"card_" + i} {...el}/>
                     </Link>)}
                 </div>
+                <Link to={PATH +'catalog'}><h2> Вернуться в каталог <BagCheck/></h2></Link>
             </>
             : <div className="empty-block">
                 <EmojiFrown/>
