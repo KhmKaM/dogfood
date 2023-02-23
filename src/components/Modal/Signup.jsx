@@ -6,15 +6,17 @@ export default ({change, close}) => {
     const [inp2, setInp2] = useState("");
     const [inp3, setInp3] = useState("");
     const [testPwd, setTestPwd] = useState(true);
-    const {api, setToken, setUser} = useContext(Ctx);
+    const {api, setToken} = useContext(Ctx);
 
     const checkPwd = (val, type = "main") => {
         type === "main" ? setInp2(val) : setInp3(val);
         if (val) {
             if (type === "main") {
                 setTestPwd(val !== inp3);
+                setInp2(val);
             } else {
                 setTestPwd(val !== inp2);
+                setInp3(val);
             }
         }
     }
@@ -35,14 +37,13 @@ export default ({change, close}) => {
                             localStorage.setItem("user8", JSON.stringify(data.data));
                             localStorage.setItem("token8", data.token);
                             setToken(data.token);
-                            setUser(data.data);
                         })
                     setInp1("");
                     setInp2("");
                     setInp3("");
                     close(false);
                 } else {
-                    alert(data.message);
+                    alert(data.message + ". Ошибка: " + data.err.statusCode);
                 }
             })
     }
@@ -67,7 +68,7 @@ export default ({change, close}) => {
             type="password" 
             placeholder="Повторить пароль" 
             value={inp3} 
-            onChange={(e) => {checkPwd(e.target.value, "check")}}
+            onChange={(e) => {checkPwd(e.target.value, "secondary")}}
         />
 
         <button className="btn" 

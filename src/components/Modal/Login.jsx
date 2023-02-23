@@ -5,7 +5,7 @@ export default ({change, close}) => {
     const [inp1, setInp1] = useState("");
     const [inp2, setInp2] = useState("");
 
-    const {setToken, api} = useContext(Ctx);
+    const {setToken, setUser, api} = useContext(Ctx);
 
     const sendForm = (e) => {
         e.preventDefault();
@@ -16,13 +16,17 @@ export default ({change, close}) => {
         api.signIn(body)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 localStorage.setItem("user8", JSON.stringify(data.data));
                 localStorage.setItem("token8", data.token);
                 setToken(data.token);
-                setInp1("");
-                setInp2("");
-                close(false)
+                setUser(data.data);
+                if (!data.err) {
+                    setInp1("");
+                    setInp2("");
+                    close(false)
+                } else {
+                    alert(data.message + ". Ошибка: " + data.err.statusCode);
+                }
             })
     }
 
