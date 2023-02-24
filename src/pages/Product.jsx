@@ -8,8 +8,9 @@ import "../pages/product.css";
 export default () => {
     const {id} = useParams()
     const [product, setProduct] = useState({});
-    const {api, PATH, user, setGoods} = useContext(Ctx);
+    const {api, PATH, user, setGoods, setBasket} = useContext(Ctx);
     const navigate = useNavigate();
+
     useEffect(() => {
             api.getProduct(id)
             .then(res => res.json())
@@ -17,6 +18,7 @@ export default () => {
                 setProduct(data);
             })
     }, []);
+
     const btnSt = {
         position: "absolute",
         right: "20px",
@@ -24,8 +26,10 @@ export default () => {
         cursor: "pointer",
         height: "auto"
     }
+
     const discountPrice = Math.round(product.price - 
         (product.price * product.discount) / 100);
+
     const remove = () => {
         api.delProduct(id)
             .then(res => res.json())
@@ -35,6 +39,24 @@ export default () => {
                     navigate(`${PATH}catalog`);
                 }
             })
+    }
+
+    const buy = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setBasket(prev => {
+            const test = prev.filter(el => el.id === id);
+            if(test.length) {
+                return prev.map(el => {
+                    if(el.id === id) {
+                        el.cnt++;
+                    }
+                    return el;
+                })
+            } else {
+                return [...prev, {id: id, cnt: 1}];
+            }
+        })
     }
 
     return <>
@@ -74,7 +96,7 @@ export default () => {
 
                     <div className="product-cart">
                         <div className="product-number"></div>
-                        <button className="product-btn-card">В корзину</button>
+                        <button className="product-btn-card" onClick={buy}>В корзину</button>
                     </div>
                     <div><p><Heart/> В избранное</p></div>
 
@@ -104,10 +126,8 @@ export default () => {
                 <div className="product-desc">
                     <div>Вес</div>
                     <div>{product.wight}</div>
-
                     <div>Количество</div>
-                    <div>{product.stock} шт.</div>
-                    
+                    <div>{product.stock} шт.</div>   
                 </div>
 
                 <h2>Отзывы</h2>
